@@ -1,53 +1,91 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React, {Component} from 'react';
+import {Navigator, StatusBar, TouchableHighlight,
+   AppRegistry, StyleSheet, Text, View} from 'react-native';
+import ListScreen from './ListScreen.js';
+import DetailScreen from './DetailScreen.js';
+import Description from './Description.js';
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+const routes = [
+  {
+    title: 'BOOKBAD',
+    index: 0
+  }, {
+    title: 'Badminton Court',
+    index: 1
+  }, {
+    title: 'Detail',
+    index: 2
+  },
+]
 
-export default class Facilities_Reservation extends Component {
+class Facilities_Reservation extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+        <StatusBar
+          backgroundColor="darkred"
+          barStyle="light-content"
+        />
+        <Navigator
+          initialRoute={routes[0]}
+          initialRouteStack={routes}
+          renderScene={
+            (route, navigator) => {
+              switch (route.index) {
+                case 0: return (<ListScreen navigator={navigator} route={routes[route.index]} {...route.passProps}></ListScreen>);
+                case 1: return (<DetailScreen navigator={navigator} route={routes[route.index]} {...route.passProps}></DetailScreen>);
+                case 2: return (<Description navigator={navigator} route={routes[route.index]} {...route.passProps}></Description>);
+
+              }
+            }
+          }
+          configureScene={
+            (route, routeStack) =>
+              Navigator.SceneConfigs.FloatFromBottom
+          }
+          navigationBar={
+           <Navigator.NavigationBar
+             routeMapper={{
+               LeftButton: (route, navigator, index, navState) => {
+                 if (route.index == 0){
+                   return null;
+                 }
+                 return (
+                   <TouchableHighlight onPress={()=>navigator.pop()}>
+                     <Text style={styles.navigationBarText}>Back</Text>
+                   </TouchableHighlight>
+                 )
+               },
+               RightButton: (route, navigator, index, navState) => { return null; },
+               Title: (route, navigator, index, navState) =>
+                 { return (<Text style={[styles.navigationBarText, styles.titleText]}>{routes[route.index].title}</Text>); },
+             }}
+             style={styles.navigationBar}
+           />
+        }
+      />
+    </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flex: 1
   },
-  welcome: {
+  navigationBar:{
+    backgroundColor: 'darkred',
+  },
+  navigationBarText:{
+    color: 'white',
+    padding: 10,
+    fontSize: 15
+  },
+  titleText:{
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    paddingTop:5
+  }
+
 });
 
 AppRegistry.registerComponent('Facilities_Reservation', () => Facilities_Reservation);
