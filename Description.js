@@ -59,7 +59,7 @@ export default class FirstScreen extends Component {
           <View style={styles.group}>
             <TouchableOpacity style={styles.button}
               onPress={this.compute}>
-              <Text style={styles.buttonText}> Booking </Text>
+              <Text style={styles.buttonText}> Book </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -71,14 +71,17 @@ export default class FirstScreen extends Component {
 const styles = StyleSheet.create({
  container:{
   padding: 20,
-  paddingTop:70,
+  paddingTop:100,
   justifyContent:'center',
   flexDirection:'column'
  },
  button:{
-   backgroundColor: '#534255',
-    padding: 20,
-    borderWidth: 1
+   marginTop: 40,
+   backgroundColor: '#bc1210',
+   width: 170,
+   height: 50,
+   alignItems: 'center',
+   justifyContent: 'center'
   },
   buttonText:{
     fontSize: 20,
@@ -90,7 +93,7 @@ const styles = StyleSheet.create({
    height: 100
  },
  title:{
-   fontSize:20,
+   fontSize:18,
  },
  group:{
    marginTop:20

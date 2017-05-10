@@ -5,6 +5,7 @@ import ListScreen from './ListScreen.js';
 import DetailScreen from './DetailScreen.js';
 import Description from './Description.js';
 import Selectcourt from './Selectcourt.js';
+import Timebad from './Timebad.js';
 const routes = [
   {
     title: 'BOOKBAD',
@@ -18,6 +19,9 @@ const routes = [
   },{
     title: 'Select Court',
     index: 3
+  },{
+    title: 'Timetable',
+    index: 4
   }
 
 ]
@@ -40,6 +44,7 @@ class Facilities_Reservation extends Component {
                 case 1: return (<DetailScreen navigator={navigator} route={routes[route.index]} {...route.passProps}></DetailScreen>);
                 case 2: return (<Description navigator={navigator} route={routes[route.index]} {...route.passProps}></Description>);
                 case 3: return (<Selectcourt navigator={navigator} route={routes[route.index]} {...route.passProps}></Selectcourt>);
+                case 4: return (<Timebad navigator={navigator} route={routes[route.index]} {...route.passProps}></Timebad>);
               }
             }
           }

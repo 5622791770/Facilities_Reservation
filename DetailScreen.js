@@ -30,7 +30,7 @@ export default class FirstScreen extends Component {
 
   saperator(){
     return (
-      <View style={{height:2, backgroundColor:'#4a464a', margin:5}}/>
+      <View style={{height:2, backgroundColor:'lightgray', margin:5}}/>
     );
   }
 
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
  container:{
   padding: 10,
   paddingTop:70,
-  backgroundColor: '#f1f6fc',
+  backgroundColor: 'white',
   flex:1
  },
  image:{
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
  row:{
    flexDirection: 'row',
-   backgroundColor: '#E6E6FA',
+   backgroundColor: '#f4f5f9',
    height: 100
  },
  header:{
