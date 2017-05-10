@@ -22,15 +22,39 @@ export default class FirstScreen extends Component {
         <View style={styles.group}>
           <Text style={styles.title}>Name: </Text>
           <TextInput style={styles.input}
+          autoCorrect={false}
+          maxLength={20}
+          placeholder="Please insert your name"
             keyboardType='numeric'
           />
         </View>
+
+        <View style={styles.group}>
+          <Text style={styles.title}>Mobile Telephone: </Text>
+          <TextInput style={styles.input}
+          autoCorrect={false}
+          maxLength={20}
+          placeholder="Please insert your phone number"
+            keyboardType='numeric'
+          />
+        </View>
+
         <View style={styles.group}>
           <Text style={styles.title}>Date: </Text>
           <TextInput style={styles.input}
             keyboardType='numeric'
           />
+
         </View>
+        <View style={styles.group}>
+          <Text style={styles.title}>Time: </Text>
+          <TextInput style={styles.input}
+            keyboardType='numeric'
+          />
+
+        </View>
+
+
         <View style={styles.center}>
           <View style={styles.group}>
             <TouchableOpacity style={styles.button}

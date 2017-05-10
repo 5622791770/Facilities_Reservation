@@ -31,7 +31,7 @@ export default class FirstScreen extends Component {
     return (
       <View style={styles.container}>
 
-          <Image style={styles.gear} source={require('./images/gear.png')} />
+          <Image style={styles.gear} source={require('./images/bad.png')} />
           <Text style={styles.appNameText}>BOOKBAD</Text>
           <Text style={styles.appDescriptionText}>Easy booking badminton and tennis courts</Text>
           <View style={styles.buttonContainer}>
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems:'center',
-    backgroundColor: '#E6E6FA'
+    backgroundColor: 'white'
   },
   gear: {
     width: 150,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   buttonContainer: {
-    backgroundColor: '#162238',
+    backgroundColor: 'white',
     alignItems: 'center',
     flex: 1,
 
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10
   },
   buttonCreate: {
-    backgroundColor: '#E6E6FA',
+    backgroundColor: '#f4f5f9',
     justifyContent: 'center',
     flex: 2,
     marginTop: 10,

@@ -4,7 +4,7 @@ import {Navigator, StatusBar, TouchableHighlight,
 import ListScreen from './ListScreen.js';
 import DetailScreen from './DetailScreen.js';
 import Description from './Description.js';
-
+import Selectcourt from './Selectcourt.js';
 const routes = [
   {
     title: 'BOOKBAD',
@@ -13,9 +13,13 @@ const routes = [
     title: 'Badminton Court',
     index: 1
   }, {
-    title: 'Detail',
+    title: 'Book a Court',
     index: 2
-  },
+  },{
+    title: 'Select Court',
+    index: 3
+  }
+
 ]
 
 class Facilities_Reservation extends Component {
@@ -35,7 +39,7 @@ class Facilities_Reservation extends Component {
                 case 0: return (<ListScreen navigator={navigator} route={routes[route.index]} {...route.passProps}></ListScreen>);
                 case 1: return (<DetailScreen navigator={navigator} route={routes[route.index]} {...route.passProps}></DetailScreen>);
                 case 2: return (<Description navigator={navigator} route={routes[route.index]} {...route.passProps}></Description>);
-
+                case 3: return (<Selectcourt navigator={navigator} route={routes[route.index]} {...route.passProps}></Selectcourt>);
               }
             }
           }
@@ -74,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   navigationBar:{
-    backgroundColor: 'darkred',
+    backgroundColor: '#bc1210',
   },
   navigationBarText:{
     color: 'white',

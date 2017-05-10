@@ -30,16 +30,16 @@ export default class FirstScreen extends Component {
 
   saperator(){
     return (
-      <View style={{height:2, backgroundColor:'lightgray', margin:5}}/>
+      <View style={{height:2, backgroundColor:'#4a464a', margin:5}}/>
     );
   }
 
   render() {
     return (
-      <View>
+
       <View style={styles.container}>
 
-  <TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 2})}}>
+  <TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 3})}}>
       <View style={{flex:5}}>
         <Image
             style={styles.image}
@@ -48,15 +48,16 @@ export default class FirstScreen extends Component {
       </View>
 
       <View style={{flex:7, padding: 7}}>
-      <Text>@ GYM1</Text>
+      <Text style={styles.header}>Rangsit Court</Text>
+      <Text style={styles.header}>92/330 </Text>
       </View>
-    
+
       </TouchableOpacity>
 
 
       {this.saperator()}
 
-<TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 1})}}>
+<TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 3})}}>
 
 
       <View style={{flex:5}}>
@@ -67,7 +68,8 @@ export default class FirstScreen extends Component {
       </View>
 
       <View style={{flex:7, padding: 7}}>
-      <Text>@ GYM2</Text>
+      <Text style={styles.header}>Bangkadi Court</Text>
+      <Text style={styles.header}>21/224</Text>
       </View>
 
       </TouchableOpacity>
@@ -75,7 +77,7 @@ export default class FirstScreen extends Component {
 
 
       </View>
-</View>
+
 
 
     );
@@ -85,6 +87,7 @@ const styles = StyleSheet.create({
  container:{
   padding: 10,
   paddingTop:70,
+  backgroundColor: '#f1f6fc',
   flex:1
  },
  image:{
@@ -96,8 +99,9 @@ const styles = StyleSheet.create({
    height: 100
  },
  header:{
-   fontSize:20,
+   fontSize:18,
    flexWrap: 'wrap',
+   paddingBottom: 10,
    color: 'black'
  }
 });
