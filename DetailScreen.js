@@ -49,7 +49,7 @@ export default class FirstScreen extends Component {
 
       <View style={{flex:7, padding: 7}}>
       <Text style={styles.header}>Rangsit Court</Text>
-      <Text style={styles.header}>92/330 </Text>
+      <Text style={styles.header2}>99 Moo 18, Phahon Yothin Rd., Khlong Nueng, Khlong Luang, Pathum Thani 12120 Thailand </Text>
       </View>
 
       </TouchableOpacity>
@@ -69,7 +69,8 @@ export default class FirstScreen extends Component {
 
       <View style={{flex:7, padding: 7}}>
       <Text style={styles.header}>Bangkadi Court</Text>
-      <Text style={styles.header}>21/224</Text>
+      <Text style={styles.header2}>131 Moo 5, Tiwanont Road, Bangkadi Muang
+Pathum Thani 12000, Thailand</Text>
       </View>
 
       </TouchableOpacity>
@@ -103,5 +104,11 @@ const styles = StyleSheet.create({
    flexWrap: 'wrap',
    paddingBottom: 10,
    color: 'black'
+ },
+ header2:{
+   fontSize:12,
+   flexWrap: 'wrap',
+   paddingBottom: 10,
+   color: 'gray'
  }
 });

@@ -94,7 +94,7 @@ button:{
   borderRadius: 10,
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: '#ffebcc'
+  backgroundColor: '#ff9169'
 },
 image: {
   width: 50,

@@ -39,8 +39,10 @@ export default class FirstScreen extends Component {
       <View>
       <View style={styles.container}>
 
-
-<TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 2})}}>
+      <TouchableOpacity style={styles.button} onPress={() => {this.props.navigator.push({index: 2})}}>
+        <Text style={styles.buttonText}> Book </Text>
+      </TouchableOpacity>
+<View style={styles.row}>
 
 
       <View style={styles.viewview2}>
@@ -51,11 +53,11 @@ export default class FirstScreen extends Component {
       <Text> Reserved by </Text>
       </View>
 
-      </TouchableOpacity>
+      </View>
 
       {this.saperator()}
 
-<TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 2})}}>
+<View style={styles.row}>
 
       <View style={styles.viewview2}>
       <Text style={styles.font}>T2</Text>
@@ -65,12 +67,12 @@ export default class FirstScreen extends Component {
       <Text> Reserved by </Text>
       </View>
 
-      </TouchableOpacity>
+      </View>
 
       {this.saperator()}
 
 
-<TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 2})}}>
+<View style={styles.row}>
 
       <View style={styles.viewview2}>
       <Text style={styles.font}>T3</Text>
@@ -80,12 +82,12 @@ export default class FirstScreen extends Component {
       <Text> Reserved by </Text>
       </View>
 
-      </TouchableOpacity>
+      </View>
 
       {this.saperator()}
 
 
-<TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 2})}}>
+<View style={styles.row}>
       <View style={styles.viewview2}>
       <Text style={styles.font}>T4</Text>
       </View>
@@ -94,12 +96,12 @@ export default class FirstScreen extends Component {
       <Text> Reserved by </Text>
       </View>
 
-      </TouchableOpacity>
+      </View>
 
       {this.saperator()}
 
 
-<TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 2})}}>
+<View style={styles.row}>
       <View style={styles.viewview2}>
       <Text style={styles.font}>T5</Text>
       </View>
@@ -108,11 +110,11 @@ export default class FirstScreen extends Component {
       <Text> Reserved by </Text>
       </View>
 
-      </TouchableOpacity>
+      </View>
 
       {this.saperator()}
 
-<TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 2})}}>
+<View style={styles.row}>
       <View style={styles.viewview2}>
       <Text style={styles.font}>T6</Text>
       </View>
@@ -121,7 +123,7 @@ export default class FirstScreen extends Component {
       <Text> Reserved by </Text>
       </View>
 
-      </TouchableOpacity>
+      </View>
 
 
 
@@ -142,7 +144,7 @@ const styles = StyleSheet.create({
     flex:7,
     padding: 7,
     flex: 4,
-    backgroundColor: '#ffebcc',
+    backgroundColor: '#f2f2f2',
   },
   viewview2:{
     flex:7,
@@ -150,7 +152,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'orange'
+    backgroundColor: '#e95947'
    },
  row:{
    justifyContent: 'center',
@@ -160,5 +162,18 @@ const styles = StyleSheet.create({
  font:{
    fontSize:20,
    color: 'white'
- }
+ },
+ button:{
+   marginTop: 20,
+   marginBottom: 20,
+   backgroundColor: '#e95947',
+   width: 355,
+   height: 50,
+   alignItems: 'center',
+   justifyContent: 'center'
+  },
+  buttonText:{
+    fontSize: 20,
+    color: 'white'
+   }
 });
