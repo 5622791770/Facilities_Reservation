@@ -39,20 +39,19 @@ export default class FirstScreen extends Component {
       <View>
       <View style={styles.container}>
 
-      <TouchableOpacity style={styles.button} onPress={() => {this.props.navigator.push({index: 2})}}>
-        <Text style={styles.buttonText}> Book </Text>
-      </TouchableOpacity>
+      
 <View style={styles.row}>
 
 
       <View style={styles.viewview2}>
+      
       <Text style={styles.font}>T1</Text>
       </View>
       <View style={styles.viewview}>
       <Text> 08.00 AM - 10.00 AM </Text>
       <Text> Reserved by </Text>
       </View>
-
+	
       </View>
 
       {this.saperator()}
@@ -137,7 +136,7 @@ export default class FirstScreen extends Component {
 const styles = StyleSheet.create({
  container:{
   padding: 10,
-  paddingTop:70,
+  paddingTop:90,
 
  },
  viewview:{
@@ -145,6 +144,9 @@ const styles = StyleSheet.create({
     padding: 7,
     flex: 4,
     backgroundColor: '#f2f2f2',
+  },
+  bon:{
+  marginTop: 20
   },
   viewview2:{
     flex:7,
@@ -157,16 +159,16 @@ const styles = StyleSheet.create({
  row:{
    justifyContent: 'center',
    height: 70,
-   flexDirection: 'row',
+   flexDirection: 'row'
  },
  font:{
    fontSize:20,
    color: 'white'
  },
  button:{
-   marginTop: 20,
+   marginTop: 25,
    marginBottom: 20,
-   backgroundColor: '#e95947',
+   backgroundColor: '#bc1210',
    width: 355,
    height: 50,
    alignItems: 'center',

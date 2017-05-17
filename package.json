@@ -7,9 +7,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "firebase": "^3.6.0",
     "gl-react-color-blending": "^1.0.2",
     "react": "15.3.2",
     "react-native": "0.36.0",
+    "react-native-radio-buttons": "^0.14.0",
     "react-native-simple-table": "0.0.2"
   },
   "jest": {

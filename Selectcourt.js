@@ -39,23 +39,25 @@ export default class FirstScreen extends Component {
 
       <View style={styles.container}>
   <TouchableOpacity style={styles.button} onPress={() => {this.props.navigator.push({index: 4})}}>
-  <Image style={styles.image} source={require('./images/bad.png')} />
-  <Text style={styles.text}>Court1</Text>
+  <Image style={styles.image} source={require('./images/bad1.png')} />
+  <Text style={styles.text}>COURT 1</Text>
   </TouchableOpacity>
   <TouchableOpacity style={styles.button} onPress={() => {this.props.navigator.push({index: 4})}}>
-  <Image style={styles.image} source={require('./images/bad.png')} />
-  <Text style={styles.text}>Court2</Text>
+  <Image style={styles.image} source={require('./images/bad1.png')} />
+  <Text style={styles.text}>COURT 2</Text>
   </TouchableOpacity>
   <TouchableOpacity style={styles.button} onPress={() => {this.props.navigator.push({index: 4})}}>
-  <Image style={styles.image} source={require('./images/bad.png')} />
-  <Text style={styles.text}>Court3</Text>
+  <Image style={styles.image} source={require('./images/bad1.png')} />
+  <Text style={styles.text}>COURT 3</Text>
   </TouchableOpacity>
   <TouchableOpacity style={styles.button} onPress={() => {this.props.navigator.push({index: 4})}}>
-  <Image style={styles.image} source={require('./images/bad.png')} />
-  <Text style={styles.text}>Court4</Text>
+  <Image style={styles.image} source={require('./images/bad1.png')} />
+  <Text style={styles.text}>COURT 4</Text>
   </TouchableOpacity>
 
-
+<TouchableOpacity style={styles.button1} onPress={() => {this.props.navigator.push({index: 2})}}>
+        <Text style={styles.buttonText}> Book </Text>
+      </TouchableOpacity>
 
       </View>
 
@@ -65,7 +67,7 @@ export default class FirstScreen extends Component {
 }
 const styles = StyleSheet.create({
  container:{
-  paddingTop:95,
+  paddingTop:65,
   flexDirection:'row',
   flexWrap: 'wrap',
   flex: 1,
@@ -85,17 +87,28 @@ const styles = StyleSheet.create({
    fontSize:20,
    flexWrap: 'wrap',
    paddingBottom: 10,
-   color: 'black'
+   color: 'white'
  },
 button:{
-  margin: 10,
+  margin: 12,
   width: 150,
   height: 250,
-  borderRadius: 10,
+  borderRadius: 5,
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: '#ff9169'
+  backgroundColor: '#e95947'
 },
+button1:{
+   backgroundColor: '#bc1210',
+   width: 400,
+   height: 55,
+   alignItems: 'center',
+   justifyContent: 'center'
+  },
+  buttonText:{
+    fontSize: 20,
+    color: 'white'
+   },
 image: {
   width: 50,
   height:50,
