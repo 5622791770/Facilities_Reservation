@@ -31,12 +31,12 @@ export default class FirstScreen extends Component {
     return (
       <View style={styles.container}>
 
-          <Image style={styles.gear} source={require('./images/bad.png')} />
-          <Text style={styles.appNameText}>BOOKBAD</Text>
+          <Image style={styles.gear} source={require('./images/first.png')} />
+          <Text style={styles.appNameText}>BOOKBAT</Text>
           <Text style={styles.appDescriptionText}>Easy booking badminton and tennis courts in </Text>
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.buttonCreate} onPress={() => {this.props.navigator.push({index: 1})}}><Text style={{textAlign: 'center', fontSize: 20, color: 'black'}}>Badminton</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.buttonCreate} onPress={() => {this.props.navigator.push({index: 1})}}><Text style={{textAlign: 'center', fontSize: 20, color: 'black'}}>Tennis</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.buttonCreate} onPress={() => {this.props.navigator.push({index: 5})}}><Text style={{textAlign: 'center', fontSize: 20, color: 'black'}}>Tennis</Text></TouchableOpacity>
           </View>
 
         {/* </Image> */}
@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   gear: {
-    width: 150,
-    height: 150,
+    width: 210,
+    height: 210,
     marginTop: 80,
     marginBottom: 20
   },

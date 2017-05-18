@@ -39,19 +39,19 @@ export default class FirstScreen extends Component {
       <View>
       <View style={styles.container}>
 
-
+      
 <View style={styles.row}>
 
 
       <View style={styles.viewview2}>
-
-      <Text style={styles.font}>B1</Text>
+      
+      <Text style={styles.font}>T1</Text>
       </View>
       <View style={styles.viewview}>
       <Text> 08.00 AM - 10.00 AM </Text>
       <Text> Reserved by </Text>
       </View>
-
+	
       </View>
 
       {this.saperator()}
@@ -59,7 +59,7 @@ export default class FirstScreen extends Component {
 <View style={styles.row}>
 
       <View style={styles.viewview2}>
-      <Text style={styles.font}>B2</Text>
+      <Text style={styles.font}>T2</Text>
       </View>
       <View style={styles.viewview}>
       <Text> 10.00 AM - 12.00 PM </Text>
@@ -74,7 +74,7 @@ export default class FirstScreen extends Component {
 <View style={styles.row}>
 
       <View style={styles.viewview2}>
-      <Text style={styles.font}>B3</Text>
+      <Text style={styles.font}>T3</Text>
       </View>
       <View style={styles.viewview}>
       <Text> 12.00 PM - 02.00 PM </Text>
@@ -88,7 +88,7 @@ export default class FirstScreen extends Component {
 
 <View style={styles.row}>
       <View style={styles.viewview2}>
-      <Text style={styles.font}>B4</Text>
+      <Text style={styles.font}>T4</Text>
       </View>
       <View style={styles.viewview}>
       <Text> 02.00 PM - 04.00 PM </Text>
@@ -102,7 +102,7 @@ export default class FirstScreen extends Component {
 
 <View style={styles.row}>
       <View style={styles.viewview2}>
-      <Text style={styles.font}>B5</Text>
+      <Text style={styles.font}>T5</Text>
       </View>
       <View style={styles.viewview}>
       <Text> 04.00 PM - 06.00 PM </Text>
@@ -115,7 +115,7 @@ export default class FirstScreen extends Component {
 
 <View style={styles.row}>
       <View style={styles.viewview2}>
-      <Text style={styles.font}>B6</Text>
+      <Text style={styles.font}>T6</Text>
       </View>
       <View style={styles.viewview}>
       <Text> 06.00 PM - 08.00 PM </Text>

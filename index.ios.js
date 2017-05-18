@@ -6,6 +6,11 @@ import DetailScreen from './DetailScreen.js';
 import Description from './Description.js';
 import Selectcourt from './Selectcourt.js';
 import Timebad from './Timebad.js';
+import Tencourt from './Tencourt.js';
+import Selecttencourt from './Selecttencourt.js';
+import Timeten from './Timeten.js';
+
+
 const routes = [
   {
     title: 'BOOKBAD',
@@ -17,11 +22,20 @@ const routes = [
     title: 'Book a Court',
     index: 2
   },{
-    title: 'Select Court',
+    title: 'Select Badminton Court',
     index: 3
   },{
     title: 'Timetable',
     index: 4
+  }, {
+    title: 'Tennis Court',
+    index: 5
+  }, {
+    title: 'Select Tennis Court',
+    index: 6
+  }, {
+    title: 'Timetable',
+    index: 7
   }
 
 ]
@@ -45,6 +59,10 @@ class Facilities_Reservation extends Component {
                 case 2: return (<Description navigator={navigator} route={routes[route.index]} {...route.passProps}></Description>);
                 case 3: return (<Selectcourt navigator={navigator} route={routes[route.index]} {...route.passProps}></Selectcourt>);
                 case 4: return (<Timebad navigator={navigator} route={routes[route.index]} {...route.passProps}></Timebad>);
+                case 5: return (<Tencourt navigator={navigator} route={routes[route.index]} {...route.passProps}></Tencourt>);
+                case 6: return (<Selecttencourt navigator={navigator} route={routes[route.index]} {...route.passProps}></Selecttencourt>);
+                case 7: return (<Timeten navigator={navigator} route={routes[route.index]} {...route.passProps}></Timeten>);
+      
               }
             }
           }
