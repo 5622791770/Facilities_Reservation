@@ -39,19 +39,19 @@ export default class FirstScreen extends Component {
 
       <View style={styles.container}>
   <TouchableOpacity style={styles.button} onPress={() => {this.props.navigator.push({index: 4})}}>
-  <Image style={styles.image} source={require('./images/bad.png')} />
+  <Image style={styles.image} source={require('./images/bad1.png')} />
   <Text style={styles.text}>COURT 1</Text>
   </TouchableOpacity>
   <TouchableOpacity style={styles.button} onPress={() => {this.props.navigator.push({index: 4})}}>
-  <Image style={styles.image} source={require('./images/bad.png')} />
+  <Image style={styles.image} source={require('./images/bad1.png')} />
   <Text style={styles.text}>COURT 2</Text>
   </TouchableOpacity>
   <TouchableOpacity style={styles.button} onPress={() => {this.props.navigator.push({index: 4})}}>
-  <Image style={styles.image} source={require('./images/bad.png')} />
+  <Image style={styles.image} source={require('./images/bad1.png')} />
   <Text style={styles.text}>COURT 3</Text>
   </TouchableOpacity>
   <TouchableOpacity style={styles.button} onPress={() => {this.props.navigator.push({index: 4})}}>
-  <Image style={styles.image} source={require('./images/bad.png')} />
+  <Image style={styles.image} source={require('./images/bad1.png')} />
   <Text style={styles.text}>COURT 4</Text>
   </TouchableOpacity>
 
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
    fontSize:20,
    flexWrap: 'wrap',
    paddingBottom: 10,
-   color: 'black'
+   color: 'white'
  },
 button:{
   margin: 12,
@@ -96,7 +96,7 @@ button:{
   borderRadius: 5,
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: '#f4f5f9'
+  backgroundColor: '#e95947'
 },
 button1:{
    backgroundColor: '#bc1210',

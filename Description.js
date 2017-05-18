@@ -13,10 +13,11 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Modal
+  Modal,
+  Alert
 } from 'react-native';
 import { SegmentedControls } from 'react-native-radio-buttons';
-
+let Moment = require('moment');
 import * as firebase from 'firebase';
   // Initialize Firebase
   var config = {
@@ -45,11 +46,13 @@ const options2 = [
 ];
 
 export default class FirstScreen extends Component {
-	constructor(props) {
+  constructor(props) {
 	super(props);
 	this.database = firebase.database();
+  this.sendBooking = this.sendBooking.bind(this);
+  this.BookingRef = this.database.ref('Badbooking');
 	}
-	
+
 	  static defaultProps = {
     date: new Date(),
     timeZoneOffsetInHours: (-1) * (new Date()).getTimezoneOffset() / 60,
@@ -60,23 +63,41 @@ export default class FirstScreen extends Component {
     timeZoneOffsetInHours: this.props.timeZoneOffsetInHours,
   };
 
+  sendBooking() {
+    let timestamp = null;
+    this.setState({date: Moment().format('Do MMMM YYYY'), time: Moment().format('h:mm:ss a')}, () =>
+      this.BookingRef.push(this.state, () =>
+        this.setState({name: '', tel: '',date: '',court: '',timeslot: ''})
+      )
+    );
+
+    Alert.alert(
+      '',
+      'Your booking has been sent.',
+
+    )
+
+  }
   onDateChange = (date) => {
     this.setState({date: date});
   };
 
-  onTimezoneChange = (event) => {
-    var offset = parseInt(event.nativeEvent.text, 10);
-    if (isNaN(offset)) {
-      return;
-    }
-    this.setState({timeZoneOffsetInHours: offset});
-  };
+
   render() {
+
+    function setSelectedOption(court){
+      this.setState({court: court});
+    }
+
+    function setSelectedOption2(timeslot){
+      this.setState({timeslot: timeslot});
+    }
+
     return (
       <View style={styles.container}>
         <View style={styles.group}>
           <Text style={styles.title}>Name: </Text>
-          <TextInput style={styles.input}
+          <TextInput value={this.state.name} onChangeText={(name) => this.setState({name})} placeholder={"Name"} style={styles.input}
           autoCorrect={false}
           maxLength={20}
           placeholder="Please insert your name"
@@ -86,7 +107,7 @@ export default class FirstScreen extends Component {
 
         <View style={styles.group}>
           <Text style={styles.title}>Telephone number: </Text>
-          <TextInput style={styles.input}
+          <TextInput value={this.state.tel} onChangeText={(tel) => this.setState({tel})} placeholder={"Tel"} style={styles.input}
           autoCorrect={false}
           maxLength={20}
           placeholder="Please insert your phone number"
@@ -95,33 +116,35 @@ export default class FirstScreen extends Component {
         </View>
 
         <View style={styles.group}>
-          <Text style={{fontSize:18}}>Today is: <Text style={{color:'#e95947'}}>{this.state.date.toLocaleDateString()}</Text></Text> 
+
+          <Text style={{fontSize:18}}>Today is: <Text style={{color:'#e95947'}}>18/5/2017</Text></Text>
         </View>
+
                 <View style={styles.group}>
           <Text style={styles.title}>Select Court: </Text>
           </View>
-        
+
                 <View style={styles.segmentControlContainer}>
-          <SegmentedControls options={ options2 } style={styles.segmentControl} tint= {'#e95947'} selectedTint={'white'}/>
+          <SegmentedControls options={ options2 } onSelection={ setSelectedOption.bind(this) }style={styles.segmentControl} selectedOption={this.state.court} tint= {'#e95947'} selectedTint={'white'}/>
         </View>
         <View style={styles.group}>
           <Text style={styles.title}>Select Time: </Text>
           </View>
         <View style={styles.segmentControlContainer}>
-          <SegmentedControls options={ options } style={styles.segmentControl} tint= {'#e95947'} selectedTint={'white'}/>
+          <SegmentedControls options={ options } onSelection={ setSelectedOption2.bind(this) }style={styles.segmentControl} selectedOption={this.state.timeslot} tint= {'#e95947'} selectedTint={'white'}/>
         </View>
 
 
         <View style={styles.center}>
           <View style={styles.group}>
             <TouchableOpacity style={styles.button}
-              onPress={this.compute}>
+              onPress={this.sendBooking}>
               <Text style={styles.buttonText}> Book </Text>
             </TouchableOpacity>
           </View>
         </View>
-        
-        
+
+
       </View>
     );
   }
@@ -164,7 +187,7 @@ const styles = StyleSheet.create({
  segmentControlContainer: {
  paddingHorizontal: 5,
  marginTop: 10
-  }, 
+  },
    segmentControl: {
 
   },
