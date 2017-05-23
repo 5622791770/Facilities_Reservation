@@ -39,7 +39,7 @@ export default class FirstScreen extends Component {
 
       <View style={styles.container}>
 
-  <TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 3})}}>
+  <TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 4})}}>
       <View style={{flex:5}}>
         <Image
             style={styles.image}
@@ -73,6 +73,11 @@ export default class FirstScreen extends Component {
 Pathum Thani 12000, Thailand</Text>
       </View>
 
+      </TouchableOpacity>
+      
+      
+      <TouchableOpacity style={styles.button1} onPress={() => {this.props.navigator.push({index: 2})}}>
+        <Text style={styles.buttonText}> Book </Text>
       </TouchableOpacity>
 
 
@@ -110,5 +115,17 @@ const styles = StyleSheet.create({
    flexWrap: 'wrap',
    paddingBottom: 10,
    color: 'gray'
- }
+ },
+ button1:{
+   backgroundColor: '#bc1210',
+   
+   width: 355,
+   height: 55,
+   alignItems: 'center',
+   justifyContent: 'center'
+  },
+    buttonText:{
+    fontSize: 20,
+    color: 'white'
+   }
 });
