@@ -2,180 +2,143 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
-  AppRegistry,
     StyleSheet,
     Text,
     View,
-    Image,
-    Switch,
-    TextInput,
-    TouchableOpacity,
-    TouchableHighlight
-} from 'react-native';
+    ListView
+} from 'react-native'
+import firebase from 'firebase'
 
 export default class FirstScreen extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     this.state = {
       modalVisible: false,
-    };
-    this.toggleModal = this.toggleModal.bind(this);
+      dataSource: ds.cloneWithRows({})
+    }
+
+    this.toggleModal = this.toggleModal.bind(this)
   }
 
-  toggleModal(response){
-      this.setState({modalVisible: !this.state.modalVisible});
+  componentWillMount () {
+    firebase.database().ref('Badbooking').orderByChild('timeslot').on('value', (snapshot) => {
+      snapshot.val()
+      ? this.setState({dataSource: this.state.dataSource.cloneWithRows(snapshot.val()) || {}})
+      : console.log('firebase is empty')
+    })
   }
 
-  saperator(){
+  toggleModal (response) {
+    this.setState({modalVisible: !this.state.modalVisible})
+  }
+
+  saperator () {
     return (
-      <View style={{height:2, backgroundColor:'lightgray', margin:5}}/>
-    );
+      <View style={{height: 2, backgroundColor: 'lightgray', margin: 5}} />
+    )
   }
 
-  render() {
+  renderRow (rowData) {
+    let time
+    switch (parseInt(rowData.timeslot)) {
+      case 1:
+        time = '8:00 - 10:00'
+        break
+      case 2:
+        time = '10:00 - 12:00'
+        break
+      case 3:
+        time = '12:00 - 14:00'
+        break
+      case 4:
+        time = '14:00 - 16:00'
+        break
+      case 5:
+        time = '16:00 - 18:00'
+        break
+      case 6:
+        time = '18:00 - 20:00'
+        break
+
+      default:
+        break
+    }
+
     return (
       <View>
-      <View style={styles.container}>
-
-
-<View style={styles.row}>
-
-
-      <View style={styles.viewview2}>
-
-      <Text style={styles.font}>B1</Text>
+        <View style={styles.row}>
+          <View style={styles.viewview2}>
+            <Text style={styles.font}>{rowData.court}.{rowData.timeslot}</Text>
+          </View>
+          <View style={styles.viewview}>
+            <Text> {time} </Text>
+            <Text> Reserved by {rowData.name} </Text>
+          </View>
+        </View>
+        {this.saperator()}
       </View>
-      <View style={styles.viewview}>
-      <Text> 08.00 AM - 10.00 AM </Text>
-      <Text> Reserved by </Text>
-      </View>
+    )
+  }
 
-      </View>
-
-      {this.saperator()}
-
-<View style={styles.row}>
-
-      <View style={styles.viewview2}>
-      <Text style={styles.font}>B2</Text>
-      </View>
-      <View style={styles.viewview}>
-      <Text> 10.00 AM - 12.00 PM </Text>
-      <Text> Reserved by </Text>
+  render () {
+    return (
+      <View>
+        <View style={styles.container}>
+          <ListView
+            enableEmptySections
+            dataSource={this.state.dataSource}
+            renderRow={rowData => this.renderRow(rowData)}
+          />
+        </View>
       </View>
 
-      </View>
-
-      {this.saperator()}
-
-
-<View style={styles.row}>
-
-      <View style={styles.viewview2}>
-      <Text style={styles.font}>B3</Text>
-      </View>
-      <View style={styles.viewview}>
-      <Text> 12.00 PM - 02.00 PM </Text>
-      <Text> Reserved by </Text>
-      </View>
-
-      </View>
-
-      {this.saperator()}
-
-
-<View style={styles.row}>
-      <View style={styles.viewview2}>
-      <Text style={styles.font}>B4</Text>
-      </View>
-      <View style={styles.viewview}>
-      <Text> 02.00 PM - 04.00 PM </Text>
-      <Text> Reserved by </Text>
-      </View>
-
-      </View>
-
-      {this.saperator()}
-
-
-<View style={styles.row}>
-      <View style={styles.viewview2}>
-      <Text style={styles.font}>B5</Text>
-      </View>
-      <View style={styles.viewview}>
-      <Text> 04.00 PM - 06.00 PM </Text>
-      <Text> Reserved by </Text>
-      </View>
-
-      </View>
-
-      {this.saperator()}
-
-<View style={styles.row}>
-      <View style={styles.viewview2}>
-      <Text style={styles.font}>B6</Text>
-      </View>
-      <View style={styles.viewview}>
-      <Text> 06.00 PM - 08.00 PM </Text>
-      <Text> Reserved by </Text>
-      </View>
-
-      </View>
-
-
-
-      </View>
-</View>
-
-
-    );
- }
+    )
+  }
 }
 const styles = StyleSheet.create({
- container:{
-  padding: 10,
-  paddingTop:90,
+  container: {
+    padding: 10,
+    paddingTop: 90
 
- },
- viewview:{
-    flex:7,
-    padding: 7,
-    flex: 4,
-    backgroundColor: '#f2f2f2',
   },
-  bon:{
-  marginTop: 20
-  },
-  viewview2:{
-    flex:7,
+  viewview: {
+    flex: 7,
     padding: 7,
-    flex: 1,
+    backgroundColor: '#f2f2f2'
+  },
+  bon: {
+    marginTop: 20
+  },
+  viewview2: {
+    padding: 7,
+    flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#e95947'
-   },
- row:{
-   justifyContent: 'center',
-   height: 70,
-   flexDirection: 'row'
- },
- font:{
-   fontSize:20,
-   color: 'white'
- },
- button:{
-   marginTop: 25,
-   marginBottom: 20,
-   backgroundColor: '#bc1210',
-   width: 355,
-   height: 50,
-   alignItems: 'center',
-   justifyContent: 'center'
   },
-  buttonText:{
+  row: {
+    justifyContent: 'center',
+    height: 70,
+    flexDirection: 'row'
+  },
+  font: {
     fontSize: 20,
     color: 'white'
-   }
-});
+  },
+  button: {
+    marginTop: 25,
+    marginBottom: 20,
+    backgroundColor: '#bc1210',
+    width: 355,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  buttonText: {
+    fontSize: 20,
+    color: 'white'
+  }
+})

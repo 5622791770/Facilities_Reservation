@@ -31,13 +31,13 @@ import * as firebase from 'firebase';
   firebase.initializeApp(config);
 
 const options = [
-  "T1",
-  "T2",
-  "T3",
-  "T4",
-  "T5",
-  "T6"
-];
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6"
+]
 const options2 = [
   "C1",
   "C2",
@@ -66,7 +66,7 @@ export default class FirstScreen extends Component {
   sendBooking() {
     let timestamp = null;
     this.setState({date: Moment().format('Do MMMM YYYY'), time: Moment().format('h:mm:ss a')}, () =>
-      this.BookingRef.push(this.state, () =>
+      this.BookingRef.child(this.state.timeslot).set(this.state, () =>
         this.setState({name: '', tel: '',date: '',court: '',timeslot: ''})
       )
     );
@@ -128,10 +128,10 @@ export default class FirstScreen extends Component {
           <SegmentedControls options={ options2 } onSelection={ setSelectedOption.bind(this) }style={styles.segmentControl} selectedOption={this.state.court} tint= {'#e95947'} selectedTint={'white'}/>
         </View>
         <View style={styles.group}>
-          <Text style={styles.title}>Select Time: </Text>
+          <Text style={styles.title}>Select Timeslot: </Text>
           </View>
         <View style={styles.segmentControlContainer}>
-          <SegmentedControls options={ options } onSelection={ setSelectedOption2.bind(this) }style={styles.segmentControl} selectedOption={this.state.timeslot} tint= {'#e95947'} selectedTint={'white'}/>
+          <SegmentedControls options={ options } onSelection={ setSelectedOption2.bind(this)} style={styles.segmentControl} selectedOption={this.state.timeslot} tint= {'#e95947'} selectedTint={'white'}/>
         </View>
 
 
