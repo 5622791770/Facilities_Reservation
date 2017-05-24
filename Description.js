@@ -73,11 +73,13 @@ export default class FirstScreen extends Component {
 
     Alert.alert(
       '',
-      'Your booking has been sent.',
+      'Your booking is successful.',
 
     )
 
   }
+  
+
   onDateChange = (date) => {
     this.setState({date: date});
   };
@@ -117,7 +119,7 @@ export default class FirstScreen extends Component {
 
         <View style={styles.group}>
 
-          <Text style={{fontSize:18}}>Today is: <Text style={{color:'#e95947'}}>18/5/2017</Text></Text>
+          <Text style={{fontSize:18}}>Today is: <Text style={{color:'#e95947'}}>24/5/2017</Text></Text>
         </View>
 
                 <View style={styles.group}>
@@ -128,7 +130,11 @@ export default class FirstScreen extends Component {
           <SegmentedControls options={ options2 } onSelection={ setSelectedOption.bind(this) }style={styles.segmentControl} selectedOption={this.state.court} tint= {'#e95947'} selectedTint={'white'}/>
         </View>
         <View style={styles.group}>
-          <Text style={styles.title}>Select Timeslot: </Text>
+        
+          <Text style={styles.title}>Select Timeslot: </Text> 
+        <TouchableOpacity onPress={() => {this.props.navigator.push({index: 7})}}>  
+        <Text style={styles.title1}>Timetable</Text> 
+      </TouchableOpacity>
           </View>
         <View style={styles.segmentControlContainer}>
           <SegmentedControls options={ options } onSelection={ setSelectedOption2.bind(this)} style={styles.segmentControl} selectedOption={this.state.timeslot} tint= {'#e95947'} selectedTint={'white'}/>

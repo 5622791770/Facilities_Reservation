@@ -49,7 +49,7 @@ export default class FirstScreen extends Component {
       </View>
       <View style={styles.viewview}>
       <Text> 08.00 AM - 10.00 AM </Text>
-      <Text> Reserved by </Text>
+    
       </View>
 	
       </View>
@@ -63,7 +63,7 @@ export default class FirstScreen extends Component {
       </View>
       <View style={styles.viewview}>
       <Text> 10.00 AM - 12.00 PM </Text>
-      <Text> Reserved by </Text>
+
       </View>
 
       </View>
@@ -78,7 +78,7 @@ export default class FirstScreen extends Component {
       </View>
       <View style={styles.viewview}>
       <Text> 12.00 PM - 02.00 PM </Text>
-      <Text> Reserved by </Text>
+ 
       </View>
 
       </View>
@@ -92,7 +92,7 @@ export default class FirstScreen extends Component {
       </View>
       <View style={styles.viewview}>
       <Text> 02.00 PM - 04.00 PM </Text>
-      <Text> Reserved by </Text>
+
       </View>
 
       </View>
@@ -106,7 +106,6 @@ export default class FirstScreen extends Component {
       </View>
       <View style={styles.viewview}>
       <Text> 04.00 PM - 06.00 PM </Text>
-      <Text> Reserved by </Text>
       </View>
 
       </View>
@@ -119,7 +118,7 @@ export default class FirstScreen extends Component {
       </View>
       <View style={styles.viewview}>
       <Text> 06.00 PM - 08.00 PM </Text>
-      <Text> Reserved by </Text>
+  
       </View>
 
       </View>
@@ -140,6 +139,7 @@ const styles = StyleSheet.create({
 
  },
  viewview:{
+    justifyContent: 'center',
     flex:7,
     padding: 7,
     flex: 4,

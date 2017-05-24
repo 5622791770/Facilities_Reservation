@@ -76,6 +76,8 @@ Pathum Thani 12000, Thailand</Text>
       </TouchableOpacity>
       
       
+      
+      
       <TouchableOpacity style={styles.button1} onPress={() => {this.props.navigator.push({index: 2})}}>
         <Text style={styles.buttonText}> Book </Text>
       </TouchableOpacity>
