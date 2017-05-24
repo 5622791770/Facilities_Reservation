@@ -57,7 +57,7 @@ export default class FirstScreen extends Component {
 
       {this.saperator()}
 
-<TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 3})}}>
+<TouchableOpacity style={styles.row} onPress={() => {this.props.navigator.push({index: 4})}}>
 
 
       <View style={{flex:5}}>
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
  },
  button1:{
    backgroundColor: '#bc1210',
-   
+   marginTop: 323,
    width: 355,
    height: 55,
    alignItems: 'center',

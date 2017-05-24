@@ -71,7 +71,7 @@ export default class FirstScreen extends Component {
       <View>
         <View style={styles.row}>
           <View style={styles.viewview2}>
-            <Text style={styles.font}>{rowData.court}.{rowData.timeslot}</Text>
+            <Text style={styles.font}>Court:{rowData.court}  Time :{rowData.timeslot}</Text>
           </View>
           <View style={styles.viewview}>
             <Text> {time} </Text>
@@ -101,7 +101,7 @@ export default class FirstScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    paddingTop: 90
+    paddingTop: 75
 
   },
   viewview: {
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   font: {
-    fontSize: 20,
+    fontSize: 16,
     color: 'white'
   },
   button: {
